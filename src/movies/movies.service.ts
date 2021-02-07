@@ -12,6 +12,8 @@ export class MoviesService {
   }
 
   getOne(movieId: number): Movie {
+    console.log(movieId);
+    console.log(this.movies);
     const movie = this.movies.find((movie) => movie.id === movieId);
     if (!movie) {
       throw new NotFoundException(`Movie with Id ${movieId} not Found`);
@@ -25,6 +27,7 @@ export class MoviesService {
   }
 
   create(movieData: CreateMovieDto) {
+    console.log(movieData);
     this.movies.push({
       id: this.movies.length + 1,
       ...movieData,
